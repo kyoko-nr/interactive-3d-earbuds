@@ -22,10 +22,7 @@ export const ColorChanger: FC = () => {
                 backgroundColor: color.color,
                 color: color.color === "#ffffff" ? "#000000" : "#ffffff",
               }}
-              onClick={() => {
-                setColor(color.color);
-                console.log("color", color.color);
-              }}
+              onClick={() => setColor(color.color)}
             >
               {color.name}
             </button>

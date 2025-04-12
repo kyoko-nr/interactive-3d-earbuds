@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { COLOR_OPTIONS } from "../constants/colors";
 
 interface ModelState {
   /** Model color */
@@ -11,6 +12,6 @@ interface ModelState {
  * Model store
  */
 export const useModelStore = create<ModelState>()((set) => ({
-  color: "#ff0000",
+  color: COLOR_OPTIONS[0].color,
   setColor: (color: string) => set({ color }),
 }));

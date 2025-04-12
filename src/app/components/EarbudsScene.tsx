@@ -11,7 +11,13 @@ import { EarbudsModel } from "./EarbudsModel";
 export const EarbudsScene: FC = () => {
   return (
     <div className="w-full h-full">
-      <Canvas>
+      <Canvas
+        orthographic
+        camera={{
+          position: [0, 0, 10],
+          zoom: 100,
+        }}
+      >
         <Suspense fallback={null}>
           <ambientLight intensity={1} />
           <directionalLight intensity={1} position={[10, 10, 10]} />
