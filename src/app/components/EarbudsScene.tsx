@@ -3,27 +3,7 @@
 import { OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { FC, Suspense } from "react";
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
-import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader";
-import { useLoader } from "@react-three/fiber";
-
-/**
- * EarbudsModel
- * （中でローディングする専用コンポーネントを作る）
- */
-const EarbudsModel: FC = () => {
-  const { scene } = useLoader(
-    GLTFLoader,
-    "/models/earbuds_draco.glb",
-    (loader) => {
-      const dracoLoader = new DRACOLoader();
-      dracoLoader.setDecoderPath("/draco-gltf/");
-      loader.setDRACOLoader(dracoLoader);
-    }
-  );
-
-  return <primitive object={scene} scale={1} />;
-};
+import { EarbudsModel } from "./EarbudsModel";
 
 /**
  * EarbudsScene
@@ -33,10 +13,11 @@ export const EarbudsScene: FC = () => {
     <div className="w-full h-full">
       <Canvas>
         <Suspense fallback={null}>
-          <ambientLight intensity={0.5} />
+          <ambientLight intensity={1} />
           <directionalLight intensity={1} position={[10, 10, 10]} />
+          <directionalLight intensity={0.5} position={[0, 0, -5]} />
           <EarbudsModel />
-          <OrbitControls />
+          <OrbitControls enablePan={false} />
         </Suspense>
       </Canvas>
     </div>
