@@ -2,9 +2,14 @@
  * Color options.
  */
 export const COLOR_OPTIONS = [
-  { name: "white", color: "#ffffff" },
-  { name: "black", color: "#000000" },
-  { name: "blue", color: "#2563EB" },
-  { name: "green", color: "#22C55E" },
-  { name: "purple", color: "#8B5CF6" },
+  { name: "white", value: "#ffffff" },
+  { name: "grey", value: "#a6a6a6" },
+  { name: "blue", value: "#8FB6D9" },
+  { name: "green", value: "#A4BFA8" },
+  { name: "purple", value: "#B270A0" },
+  { name: "peach", value: "#E87A7A" },
 ] as const;
+
+export type ColorName = (typeof COLOR_OPTIONS)[number]["name"];
+
+export type ColorValue = (typeof COLOR_OPTIONS)[number]["value"];

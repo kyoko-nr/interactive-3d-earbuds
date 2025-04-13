@@ -1,9 +1,14 @@
 "use client";
 
 import { FC } from "react";
-import { COLOR_OPTIONS } from "../constants/colors";
+import { COLOR_OPTIONS, ColorName, ColorValue } from "../constants/colors";
 import { useModelStore } from "../stores/useModelStore";
-import { TEXTURE_OPTIONS } from "../constants/textures";
+import {
+  TEXTURE_OPTIONS,
+  TextureKey,
+  TextureName,
+} from "../constants/textures";
+import { ButtonGroup } from "./ButtonGroup";
 
 /**
  * Change color UI for earbuds
@@ -13,37 +18,17 @@ export const MaterialChanger: FC = () => {
   const setTextureKey = useModelStore((state) => state.setTextureKey);
 
   return (
-    <div className="absolute top-10 left-10 p-4 border border-gray-500 rounded-sm">
-      <p>Change color</p>
-      <ul className="grid gap-2">
-        {COLOR_OPTIONS.map((color) => (
-          <li key={color.name}>
-            <button
-              className="cursor-pointer w-full p-1 border border-gray-500 rounded-sm"
-              style={{
-                backgroundColor: color.color,
-                color: color.color === "#ffffff" ? "#000000" : "#ffffff",
-              }}
-              onClick={() => setColor(color.color)}
-            >
-              {color.name}
-            </button>
-          </li>
-        ))}
-      </ul>
-      <p>Change texture</p>
-      <ul className="grid gap-2">
-        {TEXTURE_OPTIONS.map((texture) => (
-          <li key={texture.name}>
-            <button
-              className="cursor-pointer w-full p-1 border border-gray-500 rounded-sm"
-              onClick={() => setTextureKey(texture.key)}
-            >
-              {texture.name}
-            </button>
-          </li>
-        ))}
-      </ul>
+    <div className="absolute top-50% right-8 -translate-y-50% p-6 rounded-sm grid gap-8 bg-white/50 shadow-md">
+      <ButtonGroup<ColorValue, ColorName>
+        title="Color"
+        options={COLOR_OPTIONS}
+        onClick={setColor}
+      />
+      <ButtonGroup<TextureKey, TextureName>
+        title="Texture"
+        options={TEXTURE_OPTIONS}
+        onClick={setTextureKey}
+      />
     </div>
   );
 };

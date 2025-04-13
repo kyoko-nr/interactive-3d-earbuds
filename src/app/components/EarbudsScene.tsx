@@ -1,6 +1,5 @@
 "use client";
 
-import { OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { FC, Suspense } from "react";
 import { EarbudsModel } from "./EarbudsModel";
@@ -10,20 +9,18 @@ import { EarbudsModel } from "./EarbudsModel";
  */
 export const EarbudsScene: FC = () => {
   return (
-    <div className="w-full h-full">
+    <div className="absolute top-0 left-0 w-full h-full">
       <Canvas
-        orthographic
         camera={{
           position: [0, 0, 10],
-          zoom: 100,
+          zoom: 10,
         }}
       >
         <Suspense fallback={null}>
-          <ambientLight intensity={1} />
-          <directionalLight intensity={1} position={[10, 10, 10]} />
+          <ambientLight intensity={1.5} />
+          <directionalLight intensity={1.2} position={[10, 10, 10]} />
           <directionalLight intensity={0.5} position={[0, 0, -5]} />
           <EarbudsModel />
-          <OrbitControls enablePan={false} />
         </Suspense>
       </Canvas>
     </div>

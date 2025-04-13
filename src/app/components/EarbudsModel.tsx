@@ -19,5 +19,5 @@ export const EarbudsModel: FC = () => {
   // chnage material color and texture
   useMaterialColorAndTexture(scene);
 
-  return <primitive object={scene} scale={0.5} position={[0, -0.7, -4]} />;
+  return <primitive object={scene} scale={0.1} position={[-0.4, -0.32, 0]} />;
 };

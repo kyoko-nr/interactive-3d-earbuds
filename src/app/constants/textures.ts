@@ -2,10 +2,13 @@
  * Texture options.
  */
 export const TEXTURE_OPTIONS = [
-  { name: "None", key: "none" },
-  { name: "Denim", key: "fabric" },
-  { name: "Wood", key: "wood" },
+  { name: "None", value: "none" },
+  { name: "Denim", value: "fabric" },
+  { name: "Wood", value: "wood" },
 ] as const;
 
-/** Type of key of texture options */
-export type TextureKey = (typeof TEXTURE_OPTIONS)[number]["key"];
+/** Type of value of texture options */
+export type TextureKey = (typeof TEXTURE_OPTIONS)[number]["value"];
+
+/** Type of name of texture options */
+export type TextureName = (typeof TEXTURE_OPTIONS)[number]["name"];

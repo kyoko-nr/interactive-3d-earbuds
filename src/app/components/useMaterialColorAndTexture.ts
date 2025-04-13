@@ -75,6 +75,8 @@ const createStandardMaterial = (
     roughness,
     metalness,
     side: THREE.DoubleSide,
+    // depthTest: true,
+    // depthWrite: true,
   });
   if (color) {
     material.color.set(color);
