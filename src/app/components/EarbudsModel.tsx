@@ -45,11 +45,6 @@ export const EarbudsModel: FC<Props> = ({ targetRotation }) => {
   useMaterialColorAndTexture(scene);
 
   return (
-    <primitive
-      object={scene}
-      scale={0.1}
-      position={[-0.4, -0.32, 0]}
-      ref={ref}
-    />
+    <primitive object={scene} scale={0.1} position={[0, -0.32, 0]} ref={ref} />
   );
 };

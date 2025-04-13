@@ -12,41 +12,49 @@ export const RotationButtons: FC = () => {
 
   const buttons = [
     {
-      label: "Rotate left",
-      style: "bg-[url('/icons/icon_left.svg')]",
-      onClick: () => setRotateY(rotateY - 1),
+      label: "Rotate up",
+      bg: "bg-[url('/icons/icon_left.svg')] rotate-45",
+      onClick: () => setRotateX(rotateX - 1),
+      position: "top-0 left-0", // 左
     },
     {
       label: "Rotate right",
-      style: "bg-[url('/icons/icon_right.svg')]",
+      bg: "bg-[url('/icons/icon_right.svg')] -rotate-45",
       onClick: () => setRotateY(rotateY + 1),
-    },
-    {
-      label: "Rotate up",
-      style: "bg-[url('/icons/icon_left.svg')] rotate-90",
-      onClick: () => setRotateX(rotateX - 1),
+      position: "top-0 right-0", // 右
     },
     {
       label: "Rotate down",
-      style: "bg-[url('/icons/icon_right.svg')] rotate-90",
+      bg: "bg-[url('/icons/icon_right.svg')] rotate-45",
       onClick: () => setRotateX(rotateX + 1),
+      position: "bottom-0 right-0", // 下
+    },
+    {
+      label: "Rotate left",
+      bg: "bg-[url('/icons/icon_left.svg')] -rotate-45",
+      onClick: () => setRotateY(rotateY - 1),
+      position: "bottom-0 left-0", // 上
     },
   ];
 
   return (
     <div>
-      {buttons.map((button) => (
-        <button
-          key={button.label}
-          className="relative border border-gray-400 pointer-events-auto cursor-pointer size-8 rounded-sm hover:bg-gray-200 transition-colors duration-200"
-          onClick={button.onClick}
-          aria-label={button.label}
-        >
-          <span
-            className={`absolute inset-0 bg-no-repeat bg-center bg-contain transition-transform duration-200 hover:scale-110 ${button.style}`}
-          ></span>
-        </button>
-      ))}
+      <div className="relative w-30 h-30 border border-gray-400 mx-auto mt-8 bg-white rounded-full overflow-hidden rotate-45">
+        <div>
+          {buttons.map((button) => (
+            <button
+              key={button.label}
+              className={`pointer-events-auto cursor-pointer absolute ${button.position} size-15 flex items-center justify-center transition-colors duration-200 hover:bg-gray-100`}
+              onClick={button.onClick}
+              aria-label={button.label}
+            >
+              <span
+                className={`absolute inset-0 bg-no-repeat bg-size-[auto_40px] bg-center ${button.bg} transition-transform hover:scale-110`}
+              ></span>
+            </button>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };

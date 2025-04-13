@@ -19,7 +19,7 @@ export const InteractionPanel: FC = () => {
   const setTextureKey = useModelStore((state) => state.setTextureKey);
 
   return (
-    <div className="absolute top-[50%] right-12 -translate-y-[50%] p-6 rounded-sm flex gap-4 bg-white/50 shadow-md pointer-events-none">
+    <div className="absolute top-[50%] left-10 -translate-y-[50%] p-4 rounded-sm grid gap-4 bg-white/50 shadow-md pointer-events-none">
       <ButtonGroup<ColorValue, ColorName>
         title="Color"
         options={COLOR_OPTIONS}
