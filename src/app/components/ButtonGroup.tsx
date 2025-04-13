@@ -40,7 +40,7 @@ export const ButtonGroup = <T, U extends ColorName | TextureName>({
         {options.map((option) => (
           <li key={String(option.name)}>
             <button
-              className={`pointer-events-auto cursor-pointer size-10 rounded-sm hover:scale-110 transition-[scale] duration-200 ${
+              className={`pointer-events-auto cursor-pointer size-8 rounded-sm hover:scale-110 transition-[scale] duration-200 ${
                 buttonStyle[option.name]
               }`}
               onClick={() => onClick(option.value)}

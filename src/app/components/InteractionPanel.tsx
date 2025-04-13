@@ -9,16 +9,17 @@ import {
   TextureName,
 } from "../constants/textures";
 import { ButtonGroup } from "./ButtonGroup";
+import { RotationButtons } from "./RotationButtons";
 
 /**
  * Change color UI for earbuds
  */
-export const MaterialChanger: FC = () => {
+export const InteractionPanel: FC = () => {
   const setColor = useModelStore((state) => state.setColor);
   const setTextureKey = useModelStore((state) => state.setTextureKey);
 
   return (
-    <div className="absolute top-50% right-8 -translate-y-50% p-6 rounded-sm grid gap-8 bg-white/50 shadow-md pointer-events-none">
+    <div className="absolute top-[50%] right-12 -translate-y-[50%] p-6 rounded-sm flex gap-4 bg-white/50 shadow-md pointer-events-none">
       <ButtonGroup<ColorValue, ColorName>
         title="Color"
         options={COLOR_OPTIONS}
@@ -29,6 +30,7 @@ export const MaterialChanger: FC = () => {
         options={TEXTURE_OPTIONS}
         onClick={setTextureKey}
       />
+      <RotationButtons />
     </div>
   );
 };

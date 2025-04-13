@@ -11,6 +11,14 @@ interface ModelState {
   textureKey: TextureKey;
   /** Set model texture */
   setTextureKey: (textureKey: TextureKey) => void;
+  /** Model rotation */
+  rotateY: number;
+  /** Set model rotation */
+  setRotateY: (rotateY: number) => void;
+  /** Model rotation */
+  rotateX: number;
+  /** Set model rotation */
+  setRotateX: (state: number) => void;
 }
 
 /**
@@ -21,4 +29,8 @@ export const useModelStore = create<ModelState>()((set) => ({
   setColor: (color: string) => set({ color }),
   textureKey: "none",
   setTextureKey: (textureKey: TextureKey) => set({ textureKey }),
+  rotateY: 0,
+  setRotateY: (rotateY: number) => set({ rotateY }),
+  rotateX: 0,
+  setRotateX: (rotateX: number) => set({ rotateX }),
 }));

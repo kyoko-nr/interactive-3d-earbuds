@@ -1,5 +1,5 @@
 import { EarbudsScene } from "./components/EarbudsScene";
-import { MaterialChanger } from "./components/MaterialChanger";
+import { InteractionPanel } from "./components/InteractionPanel";
 import { Title } from "./components/Title";
 
 export default function Home() {
@@ -8,7 +8,7 @@ export default function Home() {
       <main className="w-full h-full">
         <Title />
         <EarbudsScene />
-        <MaterialChanger />
+        <InteractionPanel />
       </main>
       <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
         フッターです
