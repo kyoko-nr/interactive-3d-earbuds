@@ -15,7 +15,7 @@ const coloredModelName = [
  * Use scene textures
  * @param scene scene to change
  */
-export const useMaterialColorAndTexture = (scene: THREE.Scene) => {
+export const useMaterialColorAndTexture = (scene: THREE.Object3D) => {
   const color = useModelStore((state) => state.color);
   const texture = useModelStore((state) => state.textureKey);
 
