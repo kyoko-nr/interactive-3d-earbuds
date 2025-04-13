@@ -18,7 +18,7 @@ export const MaterialChanger: FC = () => {
   const setTextureKey = useModelStore((state) => state.setTextureKey);
 
   return (
-    <div className="absolute top-50% right-8 -translate-y-50% p-6 rounded-sm grid gap-8 bg-white/50 shadow-md">
+    <div className="absolute top-50% right-8 -translate-y-50% p-6 rounded-sm grid gap-8 bg-white/50 shadow-md pointer-events-none">
       <ButtonGroup<ColorValue, ColorName>
         title="Color"
         options={COLOR_OPTIONS}

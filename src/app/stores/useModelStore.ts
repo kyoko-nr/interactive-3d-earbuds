@@ -17,7 +17,7 @@ interface ModelState {
  * Model store
  */
 export const useModelStore = create<ModelState>()((set) => ({
-  color: COLOR_OPTIONS[0].color,
+  color: COLOR_OPTIONS[0].value,
   setColor: (color: string) => set({ color }),
   textureKey: "none",
   setTextureKey: (textureKey: TextureKey) => set({ textureKey }),
