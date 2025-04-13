@@ -3,7 +3,7 @@
  */
 export const TEXTURE_OPTIONS = [
   { name: "None", key: "none" },
-  { name: "Denim", key: "fabcir" },
+  { name: "Denim", key: "fabric" },
   { name: "Wood", key: "wood" },
 ] as const;
 

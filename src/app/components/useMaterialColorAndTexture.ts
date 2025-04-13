@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from "react";
+import { useMemo } from "react";
 import * as THREE from "three";
 import { useLoader } from "@react-three/fiber";
 import { useModelStore } from "../stores/useModelStore";
@@ -17,6 +17,7 @@ const coloredModelName = [
  */
 export const useMaterialColorAndTexture = (scene: THREE.Scene) => {
   const color = useModelStore((state) => state.color);
+  const texture = useModelStore((state) => state.textureKey);
 
   // Load textures
   const textures = useLoader(THREE.TextureLoader, [
@@ -37,28 +38,32 @@ export const useMaterialColorAndTexture = (scene: THREE.Scene) => {
 
   // Materials
   const whiteMaterial = createStandardMaterial(0.5, 0.4, "#ffffff");
+  const coloredMaterial = createStandardMaterial(0.5, 0.3, color);
+  const textureMaterial = createStandardMaterial(0.8, 0);
+  if (texture !== "none") {
+    textureMaterial.map = textureMap[texture].texture;
+    textureMaterial.normalMap = textureMap[texture].normal;
+  }
 
-  useEffect(() => {
-    if (!scene) {
-      return;
-    }
+  // If texture is none, change all changable materials as set color.
+  const toChangeTexture = texture === "none" ? [] : textureModelName;
+  const toChangeColor =
+    texture === "none"
+      ? [...coloredModelName, ...textureModelName]
+      : coloredModelName;
 
-    const coloredMaterial = createStandardMaterial(0.5, 0.3, color);
-    const textureMaterial = createStandardMaterial(0.8, 0);
-    textureMaterial.map = textureMap["wood"].texture;
-    textureMaterial.normalMap = textureMap["wood"].normal;
-    scene.traverse((child) => {
-      if (child instanceof THREE.Mesh) {
-        if (coloredModelName.includes(child.name)) {
-          child.material = coloredMaterial;
-        } else if (textureModelName.includes(child.name)) {
-          child.material = textureMaterial;
-        } else {
-          child.material = whiteMaterial;
-        }
+  // Change materials
+  scene.traverse((child) => {
+    if (child instanceof THREE.Mesh) {
+      if (toChangeColor.includes(child.name)) {
+        child.material = coloredMaterial;
+      } else if (toChangeTexture.includes(child.name)) {
+        child.material = textureMaterial;
+      } else {
+        child.material = whiteMaterial;
       }
-    });
-  }, [scene, color, textureMap, whiteMaterial]);
+    }
+  });
 };
 
 const createStandardMaterial = (
