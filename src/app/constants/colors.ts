@@ -5,5 +5,3 @@ export const COLOR_OPTIONS = [
   { name: "green", color: "#22C55E" },
   { name: "purple", color: "#8B5CF6" },
 ] as const;
-
-export type ColorOption = (typeof COLOR_OPTIONS)[number];
