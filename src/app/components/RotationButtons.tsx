@@ -1,3 +1,5 @@
+"use client";
+
 import { FC } from "react";
 import { useModelStore } from "../stores/useModelStore";
 
@@ -39,7 +41,7 @@ export const RotationButtons: FC = () => {
 
   return (
     <div>
-      <div className="relative w-30 h-30 border border-gray-400 mx-auto mt-8 bg-white rounded-full overflow-hidden rotate-45">
+      <div className="relative w-30 h-30 border border-gray-200 mx-auto mt-8 bg-white rounded-full overflow-hidden rotate-45 shadow-md">
         <div>
           {buttons.map((button) => (
             <button
