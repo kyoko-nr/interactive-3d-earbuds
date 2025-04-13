@@ -1,3 +1,6 @@
+/**
+ * Color options.
+ */
 export const COLOR_OPTIONS = [
   { name: "white", color: "#ffffff" },
   { name: "black", color: "#000000" },

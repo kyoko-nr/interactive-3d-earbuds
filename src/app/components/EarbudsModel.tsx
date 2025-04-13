@@ -1,10 +1,9 @@
 "use client";
 
-import { FC, useEffect } from "react";
+import { FC } from "react";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader";
 import { useLoader } from "@react-three/fiber";
-import * as THREE from "three";
 import { useMaterialColorAndTexture } from "./useMaterialColorAndTexture";
 
 /**
