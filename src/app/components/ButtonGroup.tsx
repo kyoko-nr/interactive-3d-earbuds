@@ -1,4 +1,4 @@
-import { COLOR_OPTIONS, ColorName } from "../constants/colors";
+import { ColorName } from "../constants/colors";
 import { TextureName } from "../constants/textures";
 
 type Props<T, U extends ColorName | TextureName> = {
@@ -14,12 +14,12 @@ type Props<T, U extends ColorName | TextureName> = {
 };
 
 const buttonStyle = {
-  white: `bg-[${COLOR_OPTIONS[0].value}] border border-gray-400`,
-  grey: `bg-[${COLOR_OPTIONS[1].value}]`,
-  blue: `bg-[${COLOR_OPTIONS[2].value}]`,
-  green: `bg-[${COLOR_OPTIONS[3].value}]`,
-  purple: `bg-[${COLOR_OPTIONS[4].value}]`,
-  peach: `bg-[${COLOR_OPTIONS[5].value}]`,
+  white: `bg-white border border-gray-400`,
+  gray: `bg-[#a6a6a6]`,
+  blue: `bg-[#8FB6D9]`,
+  green: `bg-[#A4BFA8]`,
+  purple: `bg-[#B270A0]`,
+  peach: `bg-[#E87A7A]`,
   None: `bg-[#ffffff] border border-gray-400`,
   Denim: "bg-[url(/textures/Fabric077.jpg)]",
   Wood: "bg-[url(/textures/Wood052.jpg)]",

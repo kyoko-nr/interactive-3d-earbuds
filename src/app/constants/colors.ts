@@ -3,7 +3,7 @@
  */
 export const COLOR_OPTIONS = [
   { name: "white", value: "#ffffff" },
-  { name: "grey", value: "#a6a6a6" },
+  { name: "gray", value: "#a6a6a6" },
   { name: "blue", value: "#8FB6D9" },
   { name: "green", value: "#A4BFA8" },
   { name: "purple", value: "#B270A0" },
