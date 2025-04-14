@@ -51,17 +51,17 @@ export const RotationButtons: FC = () => {
         delay: 0.2,
       }}
     >
-      <div className="relative w-30 h-30 border border-gray-200 mx-auto mt-8 bg-white/50 rounded-full overflow-hidden rotate-45 shadow-md max-md:w-20 max-md:h-20">
+      <div className="relative mx-auto mt-8 h-30 w-30 rotate-45 overflow-hidden rounded-full border border-gray-200 bg-white/50 shadow-md max-md:h-20 max-md:w-20">
         <div>
           {buttons.map((button) => (
             <button
               key={button.label}
-              className={`pointer-events-auto cursor-pointer absolute ${button.position} size-15 flex items-center justify-center transition-colors duration-200 hover:bg-gray-100 max-md:size-10`}
+              className={`pointer-events-auto absolute cursor-pointer ${button.position} flex size-15 items-center justify-center transition-colors duration-200 hover:bg-gray-100 max-md:size-10`}
               onClick={button.onClick}
               aria-label={button.label}
             >
               <span
-                className={`absolute inset-0 bg-no-repeat bg-size-[auto_40px] bg-center ${button.bg} transition-transform hover:scale-110 max-md:bg-size-[auto_30px]`}
+                className={`absolute inset-0 bg-size-[auto_40px] bg-center bg-no-repeat ${button.bg} transition-transform hover:scale-110 max-md:bg-size-[auto_30px]`}
               ></span>
             </button>
           ))}

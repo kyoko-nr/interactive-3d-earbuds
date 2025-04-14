@@ -35,12 +35,12 @@ export const ButtonGroup = <T, U extends ColorName | TextureName>({
 }: Props<T, U>) => {
   return (
     <div>
-      <p className="text-base font-medium mb-2">{title}</p>
+      <p className="mb-2 text-base font-medium">{title}</p>
       <ul className="flex gap-2 max-md:gap-1">
         {options.map((option) => (
           <li key={String(option.name)}>
             <button
-              className={`pointer-events-auto cursor-pointer size-8 rounded-[50%] hover:scale-110 transition-[scale] duration-200 ${
+              className={`pointer-events-auto size-8 cursor-pointer rounded-[50%] transition-[scale] duration-200 hover:scale-110 ${
                 buttonStyle[option.name]
               }`}
               onClick={() => onClick(option.value)}

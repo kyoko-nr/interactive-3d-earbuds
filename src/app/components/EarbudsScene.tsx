@@ -21,7 +21,10 @@ export const EarbudsScene: FC = () => {
   };
 
   return (
-    <div className="w-full h-full" onMouseMove={handleMouseMove}>
+    <div
+      className="h-full w-full"
+      onMouseMove={handleMouseMove}
+    >
       {isLoading && <Loader />}
       <Canvas
         camera={{
@@ -32,8 +35,14 @@ export const EarbudsScene: FC = () => {
       >
         <Suspense fallback={null}>
           <ambientLight intensity={1.5} />
-          <directionalLight intensity={1.2} position={[10, 10, 10]} />
-          <directionalLight intensity={0.5} position={[0, 0, -5]} />
+          <directionalLight
+            intensity={1.2}
+            position={[10, 10, 10]}
+          />
+          <directionalLight
+            intensity={0.5}
+            position={[0, 0, -5]}
+          />
           <EarbudsModel targetRotation={targetRotation} />
         </Suspense>
       </Canvas>

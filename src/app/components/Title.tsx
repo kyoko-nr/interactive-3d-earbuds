@@ -9,7 +9,7 @@ import { easeOutExpo } from "../constants/easing";
  * Title component
  */
 export const Title: FC = () => (
-  <div className="flex flex-col p-16 gap-[24px] items-center justify-center max-md:p-8">
+  <div className="flex flex-col items-center justify-center gap-[24px] p-16 max-md:p-8">
     <motion.div
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
@@ -19,7 +19,7 @@ export const Title: FC = () => (
       }}
     >
       <h1
-        className={`${gabarito.variable} font-medium text-6xl tracking-tight max-md:text-3xl`}
+        className={`${gabarito.variable} text-6xl font-medium tracking-tight max-md:text-3xl`}
       >
         Interactive 3D Earbuds
       </h1>

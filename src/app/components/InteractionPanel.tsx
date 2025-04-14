@@ -29,13 +29,7 @@ export const InteractionPanel: FC = () => {
         delay: 0.2,
       }}
     >
-      <div
-        className="p-4 rounded-sm flex flex-col gap-4 bg-white/50 shadow-md pointer-events-none border-gray-200
-      max-md:flex-row
-      max-md:p-2
-      max-md:gap-2
-      "
-      >
+      <div className="pointer-events-none flex flex-col gap-4 rounded-sm border-gray-200 bg-white/50 p-4 shadow-md max-md:flex-row max-md:gap-2 max-md:p-2">
         <ButtonGroup<ColorValue, ColorName>
           title="Color"
           options={COLOR_OPTIONS}

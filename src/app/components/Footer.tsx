@@ -7,7 +7,11 @@ export const Footer: FC = () => (
   <footer className="w-full px-4 py-6 text-xs">
     <p>
       <strong>Model:</strong>
-      <a href="https://skfb.ly/oFIzT" target="_blank" rel="noopener noreferrer">
+      <a
+        href="https://skfb.ly/oFIzT"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         &quot;AirPods Pro&quot;
       </a>
       by Jed Falcone, licensed under
