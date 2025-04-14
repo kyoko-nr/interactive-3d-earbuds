@@ -44,6 +44,7 @@ export const EarbudsModel: FC<Props> = ({ targetRotation }) => {
   const appearRange = appearEnd - appearStart;
   const animSpeed = 0.09;
   useFrame(() => {
+    // Appear animation
     if (ref.current && modelLoaded && !modelAppearCompleted) {
       appearProgress.current += appearSpeed;
       const eased = easeOutExpo(Math.min(appearProgress.current, 1));

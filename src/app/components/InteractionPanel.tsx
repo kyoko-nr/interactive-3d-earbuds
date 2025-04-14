@@ -25,7 +25,13 @@ export const InteractionPanel: FC = () => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1.0, ease: easeOutExpo, delay: 0.2 }}
     >
-      <div className="p-4 rounded-sm gtid gap-4 bg-white/50 shadow-md pointer-events-none border-gray-200">
+      <div
+        className="p-4 rounded-sm flex flex-col gap-4 bg-white/50 shadow-md pointer-events-none border-gray-200
+      max-md:flex-row
+      max-md:p-2
+      max-md:gap-2
+      "
+      >
         <ButtonGroup<ColorValue, ColorName>
           title="Color"
           options={COLOR_OPTIONS}

@@ -36,7 +36,7 @@ export const ButtonGroup = <T, U extends ColorName | TextureName>({
   return (
     <div>
       <p className="text-base font-medium mb-2">{title}</p>
-      <ul className="flex gap-2">
+      <ul className="flex gap-2 max-md:gap-1">
         {options.map((option) => (
           <li key={String(option.name)}>
             <button

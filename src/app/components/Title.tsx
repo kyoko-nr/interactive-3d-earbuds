@@ -9,14 +9,14 @@ import { easeOutExpo } from "../constants/easing";
  * Title component
  */
 export const Title: FC = () => (
-  <div className="flex flex-col p-16 gap-[24px] items-center justify-center">
+  <div className="flex flex-col p-16 gap-[24px] items-center justify-center max-md:p-8">
     <motion.div
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1.0, ease: easeOutExpo }}
     >
       <h1
-        className={`${gabarito.variable} font-medium text-6xl tracking-tight`}
+        className={`${gabarito.variable} font-medium text-6xl tracking-tight max-md:text-3xl`}
       >
         Interactive 3D Earbuds
       </h1>
@@ -26,7 +26,7 @@ export const Title: FC = () => (
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1.0, ease: easeOutExpo, delay: 0.1 }}
     >
-      <p className="text-lg">
+      <p className="text-lg max-md:text-base">
         A clean and simple design showcasing a 3D earbuds with changable texture
         and color.
       </p>
