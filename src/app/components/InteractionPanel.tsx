@@ -23,7 +23,11 @@ export const InteractionPanel: FC = () => {
     <motion.div
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1.0, ease: easeOutExpo, delay: 0.2 }}
+      transition={{
+        duration: 1.0,
+        ease: easeOutExpo,
+        delay: 0.2,
+      }}
     >
       <div
         className="p-4 rounded-sm flex flex-col gap-4 bg-white/50 shadow-md pointer-events-none border-gray-200

@@ -23,10 +23,10 @@ export const EarbudsModel: FC<Props> = ({ targetRotation }) => {
   const modelLoaded = useModelStore((state) => state.modelLoaded);
   const setModelLoaded = useModelStore((state) => state.setModelLoaded);
   const modelAppearCompleted = useModelStore(
-    (state) => state.modelAppearCompleted
+    (state) => state.modelAppearCompleted,
   );
   const setModelAppearCompleted = useModelStore(
-    (state) => state.setModelAppearCompleted
+    (state) => state.setModelAppearCompleted,
   );
 
   const appearProgress = useRef(0);

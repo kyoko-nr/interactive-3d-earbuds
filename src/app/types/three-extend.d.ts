@@ -22,7 +22,7 @@ declare module "three/examples/jsm/loaders/GLTFLoader" {
       url: string,
       onLoad: (gltf: GLTF) => void,
       onProgress?: (event: ProgressEvent) => void,
-      onError?: (event: ErrorEvent) => void
+      onError?: (event: ErrorEvent) => void,
     ): void;
     setDRACOLoader(dracoLoader: unknown): void;
   }
@@ -39,7 +39,7 @@ declare module "three/examples/jsm/loaders/DRACOLoader" {
       url: string,
       onLoad: (geometry: GeneratePrimeOptionsAr) => void,
       onProgress?: (event: BufferGeometry) => void,
-      onError?: (event: ErrorEvent) => void
+      onError?: (event: ErrorEvent) => void,
     ): void;
   }
 }

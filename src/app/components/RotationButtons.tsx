@@ -45,14 +45,13 @@ export const RotationButtons: FC = () => {
     <motion.div
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1.0, ease: easeOutExpo, delay: 0.2 }}
+      transition={{
+        duration: 1.0,
+        ease: easeOutExpo,
+        delay: 0.2,
+      }}
     >
-      <div
-        className="relative w-30 h-30 border border-gray-200 mx-auto mt-8 bg-white/50 rounded-full overflow-hidden rotate-45 shadow-md
-      max-md:w-20
-      max-md:h-20
-      "
-      >
+      <div className="relative w-30 h-30 border border-gray-200 mx-auto mt-8 bg-white/50 rounded-full overflow-hidden rotate-45 shadow-md max-md:w-20 max-md:h-20">
         <div>
           {buttons.map((button) => (
             <button

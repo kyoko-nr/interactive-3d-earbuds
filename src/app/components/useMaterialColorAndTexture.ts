@@ -30,10 +30,16 @@ export const useMaterialColorAndTexture = (scene: THREE.Object3D) => {
 
   const textureMap = useMemo(
     () => ({
-      fabric: { texture: textures[0], normal: textures[1] },
-      wood: { texture: textures[2], normal: textures[3] },
+      fabric: {
+        texture: textures[0],
+        normal: textures[1],
+      },
+      wood: {
+        texture: textures[2],
+        normal: textures[3],
+      },
     }),
-    [textures]
+    [textures],
   );
 
   // Materials
@@ -69,7 +75,7 @@ export const useMaterialColorAndTexture = (scene: THREE.Object3D) => {
 const createStandardMaterial = (
   roughness: number,
   metalness: number,
-  color?: string
+  color?: string,
 ) => {
   const material = new THREE.MeshStandardMaterial({
     roughness,
