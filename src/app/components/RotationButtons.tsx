@@ -2,6 +2,8 @@
 
 import { FC } from "react";
 import { useModelStore } from "../stores/useModelStore";
+import { motion } from "framer-motion";
+import { easeOutExpo } from "../constants/easing";
 
 /**
  * Model rotation buttons
@@ -40,7 +42,11 @@ export const RotationButtons: FC = () => {
   ];
 
   return (
-    <div>
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1.0, ease: easeOutExpo, delay: 0.2 }}
+    >
       <div className="relative w-30 h-30 border border-gray-200 mx-auto mt-8 bg-white rounded-full overflow-hidden rotate-45 shadow-md">
         <div>
           {buttons.map((button) => (
@@ -57,6 +63,6 @@ export const RotationButtons: FC = () => {
           ))}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };

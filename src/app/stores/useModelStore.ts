@@ -19,6 +19,14 @@ interface ModelState {
   rotateX: number;
   /** Set model rotation */
   setRotateX: (state: number) => void;
+  /** Model loaded state */
+  modelLoaded: boolean;
+  /** Set model loaded state */
+  setModelLoaded: (modelLoaded: boolean) => void;
+  /** Model appearance animation completed */
+  modelAppearCompleted: boolean;
+  /** Set appearance animation completed */
+  setModelAppearCompleted: (modelAppearCompleted: boolean) => void;
 }
 
 /**
@@ -33,4 +41,9 @@ export const useModelStore = create<ModelState>()((set) => ({
   setRotateY: (rotateY: number) => set({ rotateY }),
   rotateX: 0,
   setRotateX: (rotateX: number) => set({ rotateX }),
+  modelLoaded: false,
+  setModelLoaded: (modelLoaded: boolean) => set({ modelLoaded }),
+  modelAppearCompleted: false,
+  setModelAppearCompleted: (modelAppearCompleted: boolean) =>
+    set({ modelAppearCompleted }),
 }));
