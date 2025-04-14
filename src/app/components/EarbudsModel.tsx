@@ -17,7 +17,7 @@ type Props = {
  * EarbudsModel
  */
 export const EarbudsModel: FC<Props> = ({ targetRotation }) => {
-  const ref = useRef<THREE.Group>(null);
+  const ref = useRef<THREE.Object3D>(null);
   const rotateY = useModelStore((state) => state.rotateY);
   const rotateX = useModelStore((state) => state.rotateX);
   const modelLoaded = useModelStore((state) => state.modelLoaded);
@@ -29,6 +29,8 @@ export const EarbudsModel: FC<Props> = ({ targetRotation }) => {
     (state) => state.setModelAppearCompleted
   );
 
+  const appearProgress = useRef(0);
+
   const { scene } = useLoader(GLTFLoader, "/models/earbuds.glb", (loader) => {
     const dracoLoader = new DRACOLoader();
     dracoLoader.setDecoderPath("/draco-gltf/");
@@ -36,14 +38,27 @@ export const EarbudsModel: FC<Props> = ({ targetRotation }) => {
     loader.manager.onLoad = () => setModelLoaded(true);
   });
 
+  const appearSpeed = 0.02;
+  const appearStart = -0.4;
+  const appearEnd = -0.32;
+  const appearRange = appearEnd - appearStart;
+  const animSpeed = 0.09;
   useFrame(() => {
-    const easeSpeed = easeOutExpo(0.02);
-
     if (ref.current && modelLoaded && !modelAppearCompleted) {
-      ref.current.position.y = ref.current.position.y + 0.01;
-      console.log("ref.current.position.y", ref.current.position.y);
+      appearProgress.current += appearSpeed;
+      const eased = easeOutExpo(Math.min(appearProgress.current, 1));
 
-      if (ref.current.position.y >= -0.319) {
+      // Positioning animation
+      ref.current.position.y = appearStart + appearRange * eased;
+      // Opacity animation
+      ref.current.traverse((child) => {
+        if (child instanceof THREE.Mesh) {
+          child.material.transparent = true;
+          child.material.opacity = eased;
+        }
+      });
+
+      if (appearProgress.current >= 1) {
         setModelAppearCompleted(true);
         ref.current.position.y = -0.32;
       }
@@ -52,12 +67,12 @@ export const EarbudsModel: FC<Props> = ({ targetRotation }) => {
     // Animation by mousemove and button controls
     if (ref.current) {
       ref.current.rotation.y +=
-        (targetRotation.x - ref.current.rotation.y) * easeSpeed;
+        (targetRotation.x - ref.current.rotation.y) * animSpeed;
       ref.current.rotation.x +=
-        (targetRotation.y - ref.current.rotation.x) * easeSpeed;
+        (targetRotation.y - ref.current.rotation.x) * animSpeed;
 
-      ref.current.rotation.y += rotateY * Math.PI * 0.25 * easeSpeed;
-      ref.current.rotation.x += rotateX * Math.PI * 0.25 * easeSpeed;
+      ref.current.rotation.y += rotateY * Math.PI * 0.25 * animSpeed;
+      ref.current.rotation.x += rotateX * Math.PI * 0.25 * animSpeed;
     }
   });
 
@@ -68,9 +83,8 @@ export const EarbudsModel: FC<Props> = ({ targetRotation }) => {
     <primitive
       object={scene}
       scale={0.1}
-      position={[0, -0.32, 0]}
+      position={[0, appearStart, 0]}
       ref={ref}
-      opacity={0}
     />
   );
 };
